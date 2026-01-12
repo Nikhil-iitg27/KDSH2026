@@ -832,9 +832,8 @@ Sample violation detection:
 
 This project was developed for the KDSH 2026 hackathon by Team np.rand. We acknowledge the open-source community for providing the foundational technologies (PyTorch, Hugging Face, LangChain) that made this work possible.
 
-**Repository**: [Project Location]  
-**Documentation**: See inline code comments and docstrings  
-**License**: [To be determined]
+**Repository**: https://github.com/Nikhil-iitg27/KDSH2026
+**Documentation**: See inline code comments and docstrings
 
 ---
 
