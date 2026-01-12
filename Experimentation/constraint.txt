@@ -1,0 +1,151 @@
+================================================================================
+CONSTRAINT EXTRACTION RESULTS
+================================================================================
+
+================================================================================
+EXTRACTED CHARACTERS
+================================================================================
+  - Alice
+  - Bob
+  - Carol
+
+================================================================================
+CHARACTER CONSTRAINTS
+================================================================================
+
+Alice:
+  [trait] skilled detective
+    Source: Alice is a skilled detective who can solve complex cases. She has worked in the city 
+    for ten ye...
+    Confidence: 0.80
+  [prohibition] cannot ignore injustice
+    Source: Alice is a skilled detective who can solve complex cases. She has worked in the city 
+    for ten ye...
+    Confidence: 0.80
+  [state] has worked in the city for ten years
+    Source: Alice is a skilled detective who can solve complex cases. She has worked in the city 
+    for ten ye...
+    Confidence: 0.80
+  [ability] can solve complex cases
+    Source: Alice is a skilled detective who can solve complex cases. She has worked in the city 
+    for ten ye...
+    Confidence: 0.80
+  [trait] dedicated and thorough
+    Source: She is 
+    dedicated and thorough. Bob is a mysterious informant who helps Alice with information. ...
+    Confidence: 0.80
+  [state] met Bob in a dark alley
+    Source: Bob was once a police officer but left under 
+    mysterious circumstances. One day, Alice met Bob i...
+    Confidence: 0.80
+  [ability] will investigate immediately
+    Source: Alice said 
+    she would investigate immediately. Bob warned Alice to be careful, as powerful peopl...
+    Confidence: 0.80
+  [ability] solve the case
+    Source: Carol assigned the case to Alice 
+    and told her to follow all leads. Alice promised Carol she wou...
+    Confidence: 0.80
+  [prohibition] break the promise to follow all leads Carol
+    Source: Carol assigned the case to Alice 
+    and told her to follow all leads. Alice promised Carol she wou...
+    Confidence: 0.80
+
+Bob:
+  [prohibition] cannot reveal his identity
+    Source: She is 
+    dedicated and thorough. Bob is a mysterious informant who helps Alice with information. ...
+    Confidence: 0.80
+  [ability] can access secret records
+    Source: She is 
+    dedicated and thorough. Bob is a mysterious informant who helps Alice with information. ...
+    Confidence: 0.80
+  [state] left police under mysterious circumstances
+    Source: Bob was once a police officer but left under 
+    mysterious circumstances. One day, Alice met Bob i...
+    Confidence: 0.80
+  [ability] told Alice about a conspiracy
+    Source: Bob was once a police officer but left under 
+    mysterious circumstances. One day, Alice met Bob i...
+    Confidence: 0.80
+  [trait] former police officer
+    Source: Bob was once a police officer but left under 
+    mysterious circumstances. One day, Alice met Bob i...
+    Confidence: 0.80
+  [prohibition] warn Alice to be careful
+    Source: Alice said 
+    she would investigate immediately. Bob warned Alice to be careful, as powerful peopl...
+    Confidence: 0.80
+
+Carol:
+  [trait] trusts Alice completely
+    Source: Alice said 
+    she would investigate immediately. Bob warned Alice to be careful, as powerful peopl...
+    Confidence: 0.80
+  [ability] assign the case
+    Source: Carol assigned the case to Alice 
+    and told her to follow all leads. Alice promised Carol she wou...
+    Confidence: 0.80
+  [ability] tell someone to follow all leads Carol
+    Source: Carol assigned the case to Alice 
+    and told her to follow all leads. Alice promised Carol she wou...
+    Confidence: 0.80
+
+================================================================================
+CHARACTER INTERACTIONS
+================================================================================
+
+  Bob --[helps]--> Alice
+    Description: Bob helps Alice with information
+    Source: She is 
+    dedicated and thorough. Bob is a mysterious informant who helps Alice with information. ...
+    Confidence: 0.80
+
+  Alice --[meets]--> Bob
+    Description: Alice meets Bob, a mysterious informant who can access secret records but cannot reveal his identity
+    Source: She is 
+    dedicated and thorough. Bob is a mysterious informant who helps Alice with information. ...
+    Confidence: 0.80
+
+  Alice --[meets]--> Bob
+    Description: Alice met Bob in a dark alley
+    Source: Bob was once a police officer but left under 
+    mysterious circumstances. One day, Alice met Bob i...
+    Confidence: 0.80
+
+  Alice --[speaks]--> Bob
+    Description: Alice spoke with Bob about a conspiracy
+    Source: Bob was once a police officer but left under 
+    mysterious circumstances. One day, Alice met Bob i...
+    Confidence: 0.80
+
+  Bob --[warns]--> Alice
+    Description: warned Alice to be careful, as powerful people were involved
+    Source: Alice said 
+    she would investigate immediately. Bob warned Alice to be careful, as powerful peopl...
+    Confidence: 0.80
+
+  Carol --[assigns]--> Alice
+    Description: assigned the case
+    Source: Carol assigned the case to Alice 
+    and told her to follow all leads. Alice promised Carol she wou...
+    Confidence: 0.80
+
+  Carol --[speaks]--> Alice
+    Description: told her to follow all leads
+    Source: Carol assigned the case to Alice 
+    and told her to follow all leads. Alice promised Carol she wou...
+    Confidence: 0.80
+
+  Alice --[promises]--> Carol
+    Description: promised to solve it
+    Source: Carol assigned the case to Alice 
+    and told her to follow all leads. Alice promised Carol she wou...
+    Confidence: 0.80
+
+================================================================================
+SUMMARY
+================================================================================
+Total characters: 3
+Total constraints: 18
+Total interactions: 8

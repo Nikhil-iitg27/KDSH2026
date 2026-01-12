@@ -1,0 +1,486 @@
+Initializing models...
+Loading model: Qwen/Qwen2.5-7B-Instruct
+Using device: cuda
+Loading checkpoint shards: 100%|████████████████████████████████████████| 4/4 [00:03<00:00,  1.20it/s]
+Device set to use cuda:0
+
+Creating extraction graph...
+
+Running extraction pipeline...
+
+================================================================================
+NODE 1: EXTRACTING CHARACTERS
+================================================================================
+Created 2 chunks
+  Processing chunk 1/2
+    Found: Alice Rodriguez, Detective Bob Chen, Chief Carol Martinez
+  Processing chunk 2/2
+    Found: Alice, Carol, Bob
+
+Found 6 characters: Alice, Alice Rodriguez, Bob, Carol, Chief Carol Martinez, Detective Bob Chen
+
+Character Name Canonicalization:
+============================================================
+Alice Rodriguez
+  ← Alice
+Chief Carol Martinez
+  ← Carol
+  ← Carol Martinez
+Detective Bob Chen
+  ← Bob
+  ← Bob Chen
+============================================================
+
+================================================================================
+NODE 2: EXTRACTING CONSTRAINTS
+================================================================================
+
+Re-chunking text with smaller size (150 words) for precision...
+Created 5 constraint-focused chunks
+  Processing chunk 1/5
+    ✓ Alice Rodriguez: must never return to police work in any capacity...
+    ✓ Alice Rodriguez: accepting bribes from a local crime syndicate...
+    ✓ Chief Carol Martinez: personally mentored Alice since her rookie days...
+  Processing chunk 2/5
+    ✓ Detective Bob Chen: cannot and will not work with Chief Martinez ever ...
+    ✓ Alice Rodriguez: ethical investigative work...
+    ✓ Alice Rodriguez: rebuilt her life as a private investigator in Manh...
+    ✓ Alice Rodriguez: specializing in corporate fraud cases...
+    ✓ Chief Carol Martinez: protected Alice until the evidence became undeniab...
+  Processing chunk 3/5
+    ✓ Alice Rodriguez: has skills to crack complex cases...
+    ✓ Chief Carol Martinez: selected Alice for the case due to her skills...
+    ✓ Chief Carol Martinez: working as a special advisor to the NYPD...
+  Processing chunk 4/5
+    ✓ Detective Bob Chen: honest...
+    ✓ Chief Carol Martinez: use political connections to open doors...
+    ✓ Alice Rodriguez: reviewing thousands of pages of evidence...
+  Processing chunk 5/5
+    ✓ Alice Rodriguez: to pursue certain leads...
+    ✓ Alice Rodriguez: with full police powers...
+    ✓ Alice Rodriguez: honest and ethical...
+    ✓ Alice Rodriguez: to reveal confidential sources...
+Extracted 18 constraints
+
+================================================================================
+NODE 3: VALIDATING CONSTRAINTS
+================================================================================
+Validated: 18 passed, 0 rejected
+
+================================================================================
+NODE 5: EXTRACTING INTERACTIONS
+================================================================================
+
+Re-chunking text with medium size (250 words) for interactions...
+Created 3 interaction-focused chunks
+  Processing chunk 1/3
+    ✓ Alice Rodriguez → Detective Bob Chen: Alice calls Bob to discuss a potential l...
+    ✓ Alice Rodriguez → Chief Carol Martinez: Alice avoids working with Chief Martinez...
+  Processing chunk 2/3
+    ✓ Detective Bob Chen → Alice Rodriguez: Bob calls Alice and says they need to ta...
+    ✓ Detective Bob Chen → Alice Rodriguez: Bob and Alice meet at a coffee shop in Q...
+    ✓ Detective Bob Chen → Alice Rodriguez: Bob explains the evidence of a massive c...
+    ✓ Chief Carol Martinez → Alice Rodriguez: Carol selects Alice as a special consult...
+    ✓ Alice Rodriguez → Chief Carol Martinez: Alice feels conflicted but still trusts ...
+    ✓ Alice Rodriguez → Detective Bob Chen: Alice trusts Bob's instincts completely....
+  Processing chunk 3/3
+    ✓ Chief Carol Martinez → Detective Bob Chen: Carol pulled strings to get Bob reassign...
+    ✓ Detective Bob Chen → Alice Rodriguez: Bob felt his trust in Alice completely r...
+    ✓ Alice Rodriguez → Chief Carol Martinez: Their old tensions seemed forgotten, rep...
+    ✓ Alice Rodriguez → Chief Carol Martinez: After consulting with Carol and the Depu...
+    ✓ Alice Rodriguez → Chief Carol Martinez: Carol assured Alice it was just for this...
+    ✓ Alice Rodriguez → Detective Bob Chen: Alice proved herself invaluable, uncover...
+    ✓ Detective Bob Chen → Alice Rodriguez: "You're the same brilliant detective I r...
+Extracted 15 interactions
+
+================================================================================
+NODE 6: VALIDATING INTERACTIONS
+================================================================================
+  ✓ Found bidirectional: Detective Bob Chen ↔ Alice Rodriguez (speaks)
+  ✓ Found bidirectional: Detective Bob Chen ↔ Alice Rodriguez (speaks)
+  ✓ Found bidirectional: Detective Bob Chen ↔ Alice Rodriguez (speaks)
+
+Validated: 15 passed, 0 rejected, 14 warnings
+Found 3 bidirectional interaction pairs:
+  • Detective Bob Chen ↔ Alice Rodriguez: speaks
+  • Detective Bob Chen ↔ Alice Rodriguez: speaks
+  • Detective Bob Chen ↔ Alice Rodriguez: speaks
+
+================================================================================
+NODE 7: TEMPORAL CLASSIFICATION
+================================================================================
+  Reclassified: Detective Bob Chen | present → future
+  Reclassified: Alice Rodriguez | present → habitual
+  Reclassified: Chief Carol Martinez | present → habitual
+  Reclassified: Alice Rodriguez | present → habitual
+
+Reclassified 4 temporal tags
+
+================================================================================
+NODE 8: BIDIRECTIONAL CONSOLIDATION
+================================================================================
+Consolidated 15 → 12 interactions
+Created 1 bidirectional interactions
+
+================================================================================
+NODE 9: SEMANTIC DEDUPLICATION
+================================================================================
+Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+  Total removed: 0 semantically similar constraints
+Constraints: 18 → 18 (removed 0 duplicates)
+  Total removed: 0 semantically similar interactions
+Interactions: 12 → 12 (removed 0 duplicates)
+
+================================================================================
+NODE 10: STORY VALIDATION (Backstory vs Main Story)
+================================================================================
+Validating 12 constraints and 11 interactions
+Against 6 backstory constraints and 1 past interactions
+Using LLM for event-by-event violation detection...
+
+Checking 12 constraints...
+  [1/12] Validating: Alice Rodriguez - 'to reveal confidential sources...'
+
+      → Found 1 prohibitions, 2 other constraints, 0 past interactions
+      → Backstory context:
+         [PROHIBITION] must never return to police work in any capacity
+         [BACKSTORY] accepting bribes from a local crime syndicate
+         [BACKSTORY] has skills to crack complex cases
+
+      → Sending structured LLM prompt...
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+      → Structured result: violation=True
+      ⚠ VIOLATION FOUND (severity 3/10): Alice has the capability to crack complex cases but revealing confidential sources is a different action. While she can use her skills, the prohibition against revealing confidential sources means violating this specific prohibition.
+      ❌ VIOLATION DETECTED!
+  [2/12] Validating: Alice Rodriguez - 'ethical investigative work...'
+
+      → Found 1 prohibitions, 2 other constraints, 0 past interactions
+      → Backstory context:
+         [PROHIBITION] must never return to police work in any capacity
+         [BACKSTORY] accepting bribes from a local crime syndicate
+         [BACKSTORY] has skills to crack complex cases
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=True
+      ⚠ VIOLATION FOUND (severity 3/10): Alice has the capability to perform ethical investigative work but the prohibition explicitly states she must never return to police work in any capacity. This does not mean she cannot use her skills for other purposes, but performing police work would be a violation.
+      ❌ VIOLATION DETECTED!
+  [3/12] Validating: Alice Rodriguez - 'honest and ethical...'
+
+      → Found 1 prohibitions, 2 other constraints, 0 past interactions
+      → Backstory context:
+         [PROHIBITION] must never return to police work in any capacity
+         [BACKSTORY] accepting bribes from a local crime syndicate
+         [BACKSTORY] has skills to crack complex cases
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=True
+      ⚠ VIOLATION FOUND (severity 9/10): The character Alice Rodriguez has a prohibition against returning to police work. The new constraint states she is 'honest and ethical', which directly contradicts her past trait of accepting bribes and her potential future actions as a skilled investigator. This represents a factual contradiction in the story.
+      ❌ VIOLATION DETECTED!
+  [4/12] Validating: Chief Carol Martinez - 'working as a special advisor to the NYPD...'
+
+      → Found 1 prohibitions, 2 other constraints, 1 past interactions
+      → Backstory context:
+         [PROHIBITION] protected Alice until the evidence became undeniable
+         [BACKSTORY] personally mentored Alice since her rookie days
+         [BACKSTORY] selected Alice for the case due to her skills
+         [PAST] Chief Carol Martinez → Detective Bob Chen: Carol pulled strings to get Bob reassigned to the special ta
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=False
+      ✓ No violation detected
+
+      ✓ OK
+  [5/12] Validating: Detective Bob Chen - 'cannot and will not work with Chief Martinez ever again unde...'
+
+      → Found 0 prohibitions, 0 other constraints, 1 past interactions
+      → Backstory context:
+         [PAST] Chief Carol Martinez → Detective Bob Chen: Carol pulled strings to get Bob reassigned to the special ta
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=True
+      ⚠ VIOLATION FOUND (severity 3/10): Bob chooses to violate his own prohibition against working with Chief Martinez, which is a valid character choice but still constitutes a violation of the established rule.
+      ❌ VIOLATION DETECTED!
+  [6/12] Validating: Alice Rodriguez - 'rebuilt her life as a private investigator in Manhattan...'
+
+      → Found 1 prohibitions, 2 other constraints, 0 past interactions
+      → Backstory context:
+         [PROHIBITION] must never return to police work in any capacity
+         [BACKSTORY] accepting bribes from a local crime syndicate
+         [BACKSTORY] has skills to crack complex cases
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=False
+      ✓ No violation detected
+
+      ✓ OK
+  [7/12] Validating: Alice Rodriguez - 'reviewing thousands of pages of evidence...'
+
+      → Found 1 prohibitions, 2 other constraints, 0 past interactions
+      → Backstory context:
+         [PROHIBITION] must never return to police work in any capacity
+         [BACKSTORY] accepting bribes from a local crime syndicate
+         [BACKSTORY] has skills to crack complex cases
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=False
+      ✓ No violation detected
+
+      ✓ OK
+  [8/12] Validating: Alice Rodriguez - 'with full police powers...'
+
+      → Found 1 prohibitions, 2 other constraints, 0 past interactions
+      → Backstory context:
+         [PROHIBITION] must never return to police work in any capacity
+         [BACKSTORY] accepting bribes from a local crime syndicate
+         [BACKSTORY] has skills to crack complex cases
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=True
+      ⚠ VIOLATION FOUND (severity 8/10): Alice has full police powers but is prohibited from returning to police work. This creates a logical contradiction as she now possesses the capability but is forbidden from using it.
+      ❌ VIOLATION DETECTED!
+  [9/12] Validating: Alice Rodriguez - 'specializing in corporate fraud cases...'
+
+      → Found 1 prohibitions, 2 other constraints, 0 past interactions
+      → Backstory context:
+         [PROHIBITION] must never return to police work in any capacity
+         [BACKSTORY] accepting bribes from a local crime syndicate
+         [BACKSTORY] has skills to crack complex cases
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=False
+      ✓ No violation detected
+
+      ✓ OK
+  [10/12] Validating: Alice Rodriguez - 'to pursue certain leads...'
+
+      → Found 1 prohibitions, 2 other constraints, 0 past interactions
+      → Backstory context:
+         [PROHIBITION] must never return to police work in any capacity
+         [BACKSTORY] accepting bribes from a local crime syndicate
+         [BACKSTORY] has skills to crack complex cases
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=False
+      ✓ No violation detected
+
+      ✓ OK
+  [11/12] Validating: Detective Bob Chen - 'honest...'
+
+      → Found 0 prohibitions, 0 other constraints, 1 past interactions
+      → Backstory context:
+         [PAST] Chief Carol Martinez → Detective Bob Chen: Carol pulled strings to get Bob reassigned to the special ta
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=False
+      ✓ No violation detected
+
+      ✓ OK
+  [12/12] Validating: Chief Carol Martinez - 'use political connections to open doors...'
+
+      → Found 1 prohibitions, 2 other constraints, 1 past interactions
+      → Backstory context:
+         [PROHIBITION] protected Alice until the evidence became undeniable
+         [BACKSTORY] personally mentored Alice since her rookie days
+         [BACKSTORY] selected Alice for the case due to her skills
+         [PAST] Chief Carol Martinez → Detective Bob Chen: Carol pulled strings to get Bob reassigned to the special ta
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=False
+      ✓ No violation detected
+
+      ✓ OK
+
+Checking 11 interactions...
+  [1/11] Validating: Alice Rodriguez → Detective Bob Chen - 'Alice Rodriguez and Detective Bob Chen speaks...'
+
+      → Found 3 backstory for Alice Rodriguez, 0 for Detective Bob Chen, 0 past interactions
+      → Backstory context:
+         [BACKSTORY-Alice Rodriguez] must never return to police work in any capacity
+         [BACKSTORY-Alice Rodriguez] accepting bribes from a local crime syndicate
+         [BACKSTORY-Alice Rodriguez] has skills to crack complex cases
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=False
+      ✓ No violation detected
+
+      ✓ OK
+  [2/11] Validating: Alice Rodriguez → Chief Carol Martinez - 'Alice avoids working with Chief Martinez due to th...'
+
+      → Found 3 backstory for Alice Rodriguez, 3 for Chief Carol Martinez, 0 past interactions
+      → Backstory context:
+         [BACKSTORY-Alice Rodriguez] must never return to police work in any capacity
+         [BACKSTORY-Alice Rodriguez] accepting bribes from a local crime syndicate
+         [BACKSTORY-Alice Rodriguez] has skills to crack complex cases
+         [BACKSTORY-Chief Carol Martinez] personally mentored Alice since her rookie days
+         [BACKSTORY-Chief Carol Martinez] selected Alice for the case due to her skills
+         [BACKSTORY-Chief Carol Martinez] protected Alice until the evidence became undeniable
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=True
+      ⚠ VIOLATION FOUND (severity 3/10): Alice violates the prohibition against returning to police work by avoiding Chief Martinez despite her mentorship and selection for a case.
+      ❌ VIOLATION DETECTED!
+  [3/11] Validating: Alice Rodriguez → Chief Carol Martinez - 'Alice feels conflicted but still trusts Bob's inst...'
+
+      → Found 3 backstory for Alice Rodriguez, 3 for Chief Carol Martinez, 0 past interactions
+      → Backstory context:
+         [BACKSTORY-Alice Rodriguez] must never return to police work in any capacity
+         [BACKSTORY-Alice Rodriguez] accepting bribes from a local crime syndicate
+         [BACKSTORY-Alice Rodriguez] has skills to crack complex cases
+         [BACKSTORY-Chief Carol Martinez] personally mentored Alice since her rookie days
+         [BACKSTORY-Chief Carol Martinez] selected Alice for the case due to her skills
+         [BACKSTORY-Chief Carol Martinez] protected Alice until the evidence became undeniable
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=False
+      ✓ No violation detected
+
+      ✓ OK
+  [4/11] Validating: Alice Rodriguez → Chief Carol Martinez - 'Their old tensions seemed forgotten, replaced by p...'
+
+      → Found 3 backstory for Alice Rodriguez, 3 for Chief Carol Martinez, 0 past interactions
+      → Backstory context:
+         [BACKSTORY-Alice Rodriguez] must never return to police work in any capacity
+         [BACKSTORY-Alice Rodriguez] accepting bribes from a local crime syndicate
+         [BACKSTORY-Alice Rodriguez] has skills to crack complex cases
+         [BACKSTORY-Chief Carol Martinez] personally mentored Alice since her rookie days
+         [BACKSTORY-Chief Carol Martinez] selected Alice for the case due to her skills
+         [BACKSTORY-Chief Carol Martinez] protected Alice until the evidence became undeniable
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=False
+      ✓ No violation detected
+
+      ✓ OK
+  [5/11] Validating: Detective Bob Chen → Alice Rodriguez - 'Bob and Alice meet at a coffee shop in Queens....'
+
+      → Found 0 backstory for Detective Bob Chen, 3 for Alice Rodriguez, 0 past interactions
+      → Backstory context:
+         [BACKSTORY-Alice Rodriguez] must never return to police work in any capacity
+         [BACKSTORY-Alice Rodriguez] accepting bribes from a local crime syndicate
+         [BACKSTORY-Alice Rodriguez] has skills to crack complex cases
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=True
+      ⚠ VIOLATION FOUND (severity 3/10): Alice is prohibited from returning to police work, but meeting with Detective Bob Chen implies she might be involved in police activities again.
+      ❌ VIOLATION DETECTED!
+  [6/11] Validating: Chief Carol Martinez → Alice Rodriguez - 'Carol selects Alice as a special consultant to the...'
+
+      → Found 3 backstory for Chief Carol Martinez, 3 for Alice Rodriguez, 0 past interactions
+      → Backstory context:
+         [BACKSTORY-Chief Carol Martinez] personally mentored Alice since her rookie days
+         [BACKSTORY-Chief Carol Martinez] selected Alice for the case due to her skills
+         [BACKSTORY-Chief Carol Martinez] protected Alice until the evidence became undeniable
+         [BACKSTORY-Alice Rodriguez] must never return to police work in any capacity
+         [BACKSTORY-Alice Rodriguez] accepting bribes from a local crime syndicate
+         [BACKSTORY-Alice Rodriguez] has skills to crack complex cases
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=True
+      ⚠ VIOLATION FOUND (severity 3/10): Chief Carol Martinez prohibited Alice from returning to police work, but assigning her as a special consultant to the police task force is a clear violation of this prohibition.
+      ❌ VIOLATION DETECTED!
+  [7/11] Validating: Alice Rodriguez → Detective Bob Chen - 'Alice trusts Bob's instincts completely....'
+
+      → Found 3 backstory for Alice Rodriguez, 0 for Detective Bob Chen, 0 past interactions
+      → Backstory context:
+         [BACKSTORY-Alice Rodriguez] must never return to police work in any capacity
+         [BACKSTORY-Alice Rodriguez] accepting bribes from a local crime syndicate
+         [BACKSTORY-Alice Rodriguez] has skills to crack complex cases
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=False
+      ✓ No violation detected
+
+      ✓ OK
+  [8/11] Validating: Detective Bob Chen → Alice Rodriguez - 'Bob felt his trust in Alice completely restored....'
+
+      → Found 0 backstory for Detective Bob Chen, 3 for Alice Rodriguez, 0 past interactions
+      → Backstory context:
+         [BACKSTORY-Alice Rodriguez] must never return to police work in any capacity
+         [BACKSTORY-Alice Rodriguez] accepting bribes from a local crime syndicate
+         [BACKSTORY-Alice Rodriguez] has skills to crack complex cases
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=True
+      ⚠ VIOLATION FOUND (severity 3/10): Bob's trust in Alice is restored despite her prohibition against returning to police work.
+      ❌ VIOLATION DETECTED!
+  [9/11] Validating: Alice Rodriguez → Chief Carol Martinez - 'After consulting with Carol and the Deputy Commiss...'
+
+      → Found 3 backstory for Alice Rodriguez, 3 for Chief Carol Martinez, 0 past interactions
+      → Backstory context:
+         [BACKSTORY-Alice Rodriguez] must never return to police work in any capacity
+         [BACKSTORY-Alice Rodriguez] accepting bribes from a local crime syndicate
+         [BACKSTORY-Alice Rodriguez] has skills to crack complex cases
+         [BACKSTORY-Chief Carol Martinez] personally mentored Alice since her rookie days
+         [BACKSTORY-Chief Carol Martinez] selected Alice for the case due to her skills
+         [BACKSTORY-Chief Carol Martinez] protected Alice until the evidence became undeniable
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=True
+      ⚠ VIOLATION FOUND (severity 3/10): Alice violated the prohibition against returning to police work by accepting a temporary badge and rejoining the force.
+      ❌ VIOLATION DETECTED!
+  [10/11] Validating: Alice Rodriguez → Chief Carol Martinez - 'Carol assured Alice it was just for this case....'
+
+      → Found 3 backstory for Alice Rodriguez, 3 for Chief Carol Martinez, 0 past interactions
+      → Backstory context:
+         [BACKSTORY-Alice Rodriguez] must never return to police work in any capacity
+         [BACKSTORY-Alice Rodriguez] accepting bribes from a local crime syndicate
+         [BACKSTORY-Alice Rodriguez] has skills to crack complex cases
+         [BACKSTORY-Chief Carol Martinez] personally mentored Alice since her rookie days
+         [BACKSTORY-Chief Carol Martinez] selected Alice for the case due to her skills
+         [BACKSTORY-Chief Carol Martinez] protected Alice until the evidence became undeniable
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=False
+      ✓ No violation detected
+
+      ✓ OK
+  [11/11] Validating: Alice Rodriguez → Detective Bob Chen - 'Alice proved herself invaluable, uncovering connec...'
+
+      → Found 3 backstory for Alice Rodriguez, 0 for Detective Bob Chen, 0 past interactions
+      → Backstory context:
+         [BACKSTORY-Alice Rodriguez] must never return to police work in any capacity
+         [BACKSTORY-Alice Rodriguez] accepting bribes from a local crime syndicate
+         [BACKSTORY-Alice Rodriguez] has skills to crack complex cases
+
+      → Sending structured LLM prompt...
+      → Structured result: violation=False
+      ✓ No violation detected
+
+      ✓ OK
+
+Found 10 violation(s):
+
+🔴 [9/10] Alice Rodriguez: The character Alice Rodriguez has a prohibition against returning to police work. The new constraint states she is 'honest and ethical', which directly contradicts her past trait of accepting bribes and her potential future actions as a skilled investigator. This represents a factual contradiction in the story.
+🔴 [8/10] Alice Rodriguez: Alice has full police powers but is prohibited from returning to police work. This creates a logical contradiction as she now possesses the capability but is forbidden from using it.
+🟢 [3/10] Alice Rodriguez: Alice has the capability to crack complex cases but revealing confidential sources is a different action. While she can use her skills, the prohibition against revealing confidential sources means violating this specific prohibition.
+🟢 [3/10] Alice Rodriguez: Alice has the capability to perform ethical investigative work but the prohibition explicitly states she must never return to police work in any capacity. This does not mean she cannot use her skills for other purposes, but performing police work would be a violation.
+🟢 [3/10] Detective Bob Chen: Bob chooses to violate his own prohibition against working with Chief Martinez, which is a valid character choice but still constitutes a violation of the established rule.
+🟢 [3/10] Alice Rodriguez: Alice violates the prohibition against returning to police work by avoiding Chief Martinez despite her mentorship and selection for a case.
+🟢 [3/10] Alice Rodriguez: Alice is prohibited from returning to police work, but meeting with Detective Bob Chen implies she might be involved in police activities again.
+🟢 [3/10] Alice Rodriguez: Chief Carol Martinez prohibited Alice from returning to police work, but assigning her as a special consultant to the police task force is a clear violation of this prohibition.
+🟢 [3/10] Alice Rodriguez: Bob's trust in Alice is restored despite her prohibition against returning to police work.
+🟢 [3/10] Alice Rodriguez: Alice violated the prohibition against returning to police work by accepting a temporary badge and rejoining the force.
+
+OVERALL VALIDITY: 0 (INVALID)
+  Max severity: 9/10
+  High severity violations (≥6): 2
+  Medium severity violations (≥4): 2
+
+✓ Wrote output to report.json
+  - 3 characters
+  - 18 constraints
+  - 12 interactions
+  - 10 violations
+
+================================================================================
+✗ STORY IS INVALID
+================================================================================
+
+Reason for invalidity:
+  Critical contradiction detected (severity 9/10).
+  The story contains factually impossible elements or direct contradictions.
+
+Output saved to: report.json
+================================================================================
+
+✓ Extraction completed successfully!

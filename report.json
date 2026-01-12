@@ -1,0 +1,407 @@
+{
+  "summary": {
+    "total_characters": 3,
+    "total_constraints": 18,
+    "total_interactions": 12,
+    "total_chunks": 2,
+    "total_violations": 10
+  },
+  "violations": [
+    "Alice Rodriguez: Alice has the capability to crack complex cases but revealing confidential sources is a different action. While she can use her skills, the prohibition against revealing confidential sources means violating this specific prohibition. (severity: 3)",
+    "Alice Rodriguez: Alice has the capability to perform ethical investigative work but the prohibition explicitly states she must never return to police work in any capacity. This does not mean she cannot use her skills for other purposes, but performing police work would be a violation. (severity: 3)",
+    "Alice Rodriguez: The character Alice Rodriguez has a prohibition against returning to police work. The new constraint states she is 'honest and ethical', which directly contradicts her past trait of accepting bribes and her potential future actions as a skilled investigator. This represents a factual contradiction in the story. (severity: 9)",
+    "Detective Bob Chen: Bob chooses to violate his own prohibition against working with Chief Martinez, which is a valid character choice but still constitutes a violation of the established rule. (severity: 3)",
+    "Alice Rodriguez: Alice has full police powers but is prohibited from returning to police work. This creates a logical contradiction as she now possesses the capability but is forbidden from using it. (severity: 8)",
+    "Alice Rodriguez: Alice violates the prohibition against returning to police work by avoiding Chief Martinez despite her mentorship and selection for a case. (severity: 3)",
+    "Alice Rodriguez: Alice is prohibited from returning to police work, but meeting with Detective Bob Chen implies she might be involved in police activities again. (severity: 3)",
+    "Alice Rodriguez: Chief Carol Martinez prohibited Alice from returning to police work, but assigning her as a special consultant to the police task force is a clear violation of this prohibition. (severity: 3)",
+    "Alice Rodriguez: Bob's trust in Alice is restored despite her prohibition against returning to police work. (severity: 3)",
+    "Alice Rodriguez: Alice violated the prohibition against returning to police work by accepting a temporary badge and rejoining the force. (severity: 3)"
+  ],
+  "characters": [
+    {
+      "name": "Alice Rodriguez",
+      "backstory": {
+        "constraints": [
+          {
+            "type": "prohibition",
+            "value": "must never return to police work in any capacity",
+            "temporal_tag": "past",
+            "chunk_index": 0,
+            "source_chunk": "Alice Rodriguez served as a decorated police detective in the Chicago Police Department for nearly a decade. During those years, she worked alongside her partner, Detective Bob Chen, solving over thirty major cases together. They built a reputation as the department's most effective investigative team, earning commendations from Police Chief Carol Martinez, who had personally mentored Alice since her rookie days. But everything changed three years ago. Internal Affairs discovered that Alice had been accepting bribes from a local crime syndicate in exchange for tipping them off about upcoming raids. The investigation revealed years of corruption, and Alice narrowly avoided criminal prosecution by agreeing to resign immediately. Chief Martinez, feeling betrayed by her former prot\u00e9g\u00e9, made Alice sign an agreement: she must never return to police work in any capacity, anywhere in the country. The document was clear and legally binding.",
+            "confidence": 0.95
+          },
+          {
+            "type": "trait",
+            "value": "accepting bribes from a local crime syndicate",
+            "temporal_tag": "past",
+            "chunk_index": 0,
+            "source_chunk": "Alice Rodriguez served as a decorated police detective in the Chicago Police Department for nearly a decade. During those years, she worked alongside her partner, Detective Bob Chen, solving over thirty major cases together. They built a reputation as the department's most effective investigative team, earning commendations from Police Chief Carol Martinez, who had personally mentored Alice since her rookie days. But everything changed three years ago. Internal Affairs discovered that Alice had been accepting bribes from a local crime syndicate in exchange for tipping them off about upcoming raids. The investigation revealed years of corruption, and Alice narrowly avoided criminal prosecution by agreeing to resign immediately. Chief Martinez, feeling betrayed by her former prot\u00e9g\u00e9, made Alice sign an agreement: she must never return to police work in any capacity, anywhere in the country. The document was clear and legally binding.",
+            "confidence": 0.98
+          },
+          {
+            "type": "trait",
+            "value": "has skills to crack complex cases",
+            "temporal_tag": "past",
+            "chunk_index": 2,
+            "source_chunk": "Last Tuesday, Alice received an unexpected call from Bob Chen. \"We need to talk,\" he said, his voice tense. They met at a coffee shop in Queens where Bob explained he'd uncovered evidence of a massive conspiracy involving city officials and organized crime. \"It's bigger than anything we ever handled in Chicago,\" Bob told her. \"I need your help.\"\n\nWhat Alice didn't know was that Chief Carol Martinez had personally selected her for this case. Carol, now working as a special advisor to the NYPD, had reviewed the evidence and believed only Alice had the skills to crack it. She assigned Alice as a special consultant to the police task force, offering full access to department resources and databases. Alice felt conflicted when she met Carol at the precinct headquarters. She trusted Bob's instincts completely\u2014he had always been honest with her, even during her darkest days.",
+            "confidence": 0.9
+          }
+        ],
+        "interactions": {
+          "outgoing": [],
+          "incoming": [],
+          "bidirectional": []
+        }
+      },
+      "current_story": {
+        "constraints": [
+          {
+            "type": "prohibition",
+            "value": "to reveal confidential sources",
+            "temporal_tag": "present",
+            "chunk_index": 4,
+            "source_chunk": "As the case intensified, Alice realized she needed official authority to pursue certain leads. After consulting with Carol and the Deputy Commissioner, Alice accepted a temporary badge and rejoined the police force as a special investigator. \"It's just for this case,\" Carol assured her. \"We need you working with full police powers.\"\n\nAlice proved herself invaluable. Her honest and ethical approach to the investigation uncovered connections others had missed. She refused to reveal her confidential sources, protecting them even when pressured by senior officers. Bob, watching her work, felt his trust in Alice completely restored. \"You're the same brilliant detective I remember,\" he told her. \"Maybe even better.\"\n\nThe conspiracy was real, and Alice was determined to expose it, no matter where the evidence led.",
+            "confidence": 0.95
+          },
+          {
+            "type": "trait",
+            "value": "ethical investigative work",
+            "temporal_tag": "habitual",
+            "chunk_index": 1,
+            "source_chunk": "The document was clear and legally binding. The scandal also destroyed the relationship between Bob and Carol. Bob had suspected Alice's corruption for months but Carol refused to investigate, protecting Alice until the evidence became undeniable. The betrayal shattered Bob's trust in Carol's leadership. After a heated confrontation in Carol's office, Bob transferred to a different precinct with one condition explicitly stated in his personnel file: he cannot and will not work with Chief Martinez ever again under any circumstances. Present Day - New York City\n\nAlice Rodriguez has rebuilt her life as a private investigator in Manhattan, specializing in corporate fraud cases. She maintains a small office in Brooklyn and has earned a modest reputation for her thorough, ethical investigative work. Her past remains buried, known only to a few. Last Tuesday, Alice received an unexpected call from Bob Chen. \"We need to talk,\" he said, his voice tense.",
+            "confidence": 0.85
+          },
+          {
+            "type": "trait",
+            "value": "honest and ethical",
+            "temporal_tag": "habitual",
+            "chunk_index": 4,
+            "source_chunk": "As the case intensified, Alice realized she needed official authority to pursue certain leads. After consulting with Carol and the Deputy Commissioner, Alice accepted a temporary badge and rejoined the police force as a special investigator. \"It's just for this case,\" Carol assured her. \"We need you working with full police powers.\"\n\nAlice proved herself invaluable. Her honest and ethical approach to the investigation uncovered connections others had missed. She refused to reveal her confidential sources, protecting them even when pressured by senior officers. Bob, watching her work, felt his trust in Alice completely restored. \"You're the same brilliant detective I remember,\" he told her. \"Maybe even better.\"\n\nThe conspiracy was real, and Alice was determined to expose it, no matter where the evidence led.",
+            "confidence": 0.95
+          },
+          {
+            "type": "state",
+            "value": "rebuilt her life as a private investigator in Manhattan",
+            "temporal_tag": "present",
+            "chunk_index": 1,
+            "source_chunk": "The document was clear and legally binding. The scandal also destroyed the relationship between Bob and Carol. Bob had suspected Alice's corruption for months but Carol refused to investigate, protecting Alice until the evidence became undeniable. The betrayal shattered Bob's trust in Carol's leadership. After a heated confrontation in Carol's office, Bob transferred to a different precinct with one condition explicitly stated in his personnel file: he cannot and will not work with Chief Martinez ever again under any circumstances. Present Day - New York City\n\nAlice Rodriguez has rebuilt her life as a private investigator in Manhattan, specializing in corporate fraud cases. She maintains a small office in Brooklyn and has earned a modest reputation for her thorough, ethical investigative work. Her past remains buried, known only to a few. Last Tuesday, Alice received an unexpected call from Bob Chen. \"We need to talk,\" he said, his voice tense.",
+            "confidence": 0.9
+          },
+          {
+            "type": "state",
+            "value": "reviewing thousands of pages of evidence",
+            "temporal_tag": "present",
+            "chunk_index": 3,
+            "source_chunk": "She trusted Bob's instincts completely\u2014he had always been honest with her, even during her darkest days. But Carol's motives seemed unclear, almost suspiciously generous given their history. The investigation moved quickly. Alice reviewed thousands of pages of evidence, cross-referencing financial records with surveillance reports. Bob took the lead on fieldwork, conducting interviews with potential witnesses. Carol used her political connections to open doors that would normally remain closed, sharing insider information about which officials might be compromised. To Alice's surprise, Bob and Carol were working together seamlessly on the investigation, meeting daily to coordinate strategy. Their old tensions seemed forgotten, replaced by professional respect. Carol even mentioned that she'd pulled strings to get Bob reassigned to the special task force. As the case intensified, Alice realized she needed official authority to pursue certain leads.",
+            "confidence": 0.95
+          },
+          {
+            "type": "state",
+            "value": "with full police powers",
+            "temporal_tag": "present",
+            "chunk_index": 4,
+            "source_chunk": "As the case intensified, Alice realized she needed official authority to pursue certain leads. After consulting with Carol and the Deputy Commissioner, Alice accepted a temporary badge and rejoined the police force as a special investigator. \"It's just for this case,\" Carol assured her. \"We need you working with full police powers.\"\n\nAlice proved herself invaluable. Her honest and ethical approach to the investigation uncovered connections others had missed. She refused to reveal her confidential sources, protecting them even when pressured by senior officers. Bob, watching her work, felt his trust in Alice completely restored. \"You're the same brilliant detective I remember,\" he told her. \"Maybe even better.\"\n\nThe conspiracy was real, and Alice was determined to expose it, no matter where the evidence led.",
+            "confidence": 0.9
+          },
+          {
+            "type": "ability",
+            "value": "specializing in corporate fraud cases",
+            "temporal_tag": "present",
+            "chunk_index": 1,
+            "source_chunk": "The document was clear and legally binding. The scandal also destroyed the relationship between Bob and Carol. Bob had suspected Alice's corruption for months but Carol refused to investigate, protecting Alice until the evidence became undeniable. The betrayal shattered Bob's trust in Carol's leadership. After a heated confrontation in Carol's office, Bob transferred to a different precinct with one condition explicitly stated in his personnel file: he cannot and will not work with Chief Martinez ever again under any circumstances. Present Day - New York City\n\nAlice Rodriguez has rebuilt her life as a private investigator in Manhattan, specializing in corporate fraud cases. She maintains a small office in Brooklyn and has earned a modest reputation for her thorough, ethical investigative work. Her past remains buried, known only to a few. Last Tuesday, Alice received an unexpected call from Bob Chen. \"We need to talk,\" he said, his voice tense.",
+            "confidence": 0.92
+          },
+          {
+            "type": "ability",
+            "value": "to pursue certain leads",
+            "temporal_tag": "present",
+            "chunk_index": 4,
+            "source_chunk": "As the case intensified, Alice realized she needed official authority to pursue certain leads. After consulting with Carol and the Deputy Commissioner, Alice accepted a temporary badge and rejoined the police force as a special investigator. \"It's just for this case,\" Carol assured her. \"We need you working with full police powers.\"\n\nAlice proved herself invaluable. Her honest and ethical approach to the investigation uncovered connections others had missed. She refused to reveal her confidential sources, protecting them even when pressured by senior officers. Bob, watching her work, felt his trust in Alice completely restored. \"You're the same brilliant detective I remember,\" he told her. \"Maybe even better.\"\n\nThe conspiracy was real, and Alice was determined to expose it, no matter where the evidence led.",
+            "confidence": 0.85
+          }
+        ],
+        "interactions": {
+          "outgoing": [
+            {
+              "target": "Chief Carol Martinez",
+              "type": "trusts",
+              "description": "Alice avoids working with Chief Martinez due to the past betrayal.",
+              "temporal_tag": "present",
+              "chunk_index": 0
+            },
+            {
+              "target": "Chief Carol Martinez",
+              "type": "trusts",
+              "description": "Alice feels conflicted but still trusts Bob's instincts.",
+              "temporal_tag": "present",
+              "chunk_index": 1
+            },
+            {
+              "target": "Chief Carol Martinez",
+              "type": "trusts",
+              "description": "Their old tensions seemed forgotten, replaced by professional respect.",
+              "temporal_tag": "present",
+              "chunk_index": 2
+            },
+            {
+              "target": "Detective Bob Chen",
+              "type": "trusts",
+              "description": "Alice trusts Bob's instincts completely.",
+              "temporal_tag": "present",
+              "chunk_index": 1
+            },
+            {
+              "target": "Chief Carol Martinez",
+              "type": "speaks",
+              "description": "After consulting with Carol and the Deputy Commissioner, Alice accepted a temporary badge and rejoined the police force as a special investigator.",
+              "temporal_tag": "present",
+              "chunk_index": 2
+            },
+            {
+              "target": "Chief Carol Martinez",
+              "type": "promises",
+              "description": "Carol assured Alice it was just for this case.",
+              "temporal_tag": "present",
+              "chunk_index": 2
+            },
+            {
+              "target": "Detective Bob Chen",
+              "type": "helps",
+              "description": "Alice proved herself invaluable, uncovering connections others had missed.",
+              "temporal_tag": "present",
+              "chunk_index": 2
+            }
+          ],
+          "incoming": [
+            {
+              "source": "Detective Bob Chen",
+              "type": "meets",
+              "description": "Bob and Alice meet at a coffee shop in Queens.",
+              "temporal_tag": "present",
+              "chunk_index": 1
+            },
+            {
+              "source": "Chief Carol Martinez",
+              "type": "assigns",
+              "description": "Carol selects Alice as a special consultant to the police task force and offers full access to department resources and databases.",
+              "temporal_tag": "present",
+              "chunk_index": 1
+            },
+            {
+              "source": "Detective Bob Chen",
+              "type": "trusts",
+              "description": "Bob felt his trust in Alice completely restored.",
+              "temporal_tag": "present",
+              "chunk_index": 2
+            }
+          ],
+          "bidirectional": [
+            {
+              "other_character": "Detective Bob Chen",
+              "type": "speaks",
+              "description": "Alice Rodriguez and Detective Bob Chen speaks",
+              "temporal_tag": "present",
+              "chunk_index": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Chief Carol Martinez",
+      "backstory": {
+        "constraints": [
+          {
+            "type": "trait",
+            "value": "personally mentored Alice since her rookie days",
+            "temporal_tag": "past",
+            "chunk_index": 0,
+            "source_chunk": "Alice Rodriguez served as a decorated police detective in the Chicago Police Department for nearly a decade. During those years, she worked alongside her partner, Detective Bob Chen, solving over thirty major cases together. They built a reputation as the department's most effective investigative team, earning commendations from Police Chief Carol Martinez, who had personally mentored Alice since her rookie days. But everything changed three years ago. Internal Affairs discovered that Alice had been accepting bribes from a local crime syndicate in exchange for tipping them off about upcoming raids. The investigation revealed years of corruption, and Alice narrowly avoided criminal prosecution by agreeing to resign immediately. Chief Martinez, feeling betrayed by her former prot\u00e9g\u00e9, made Alice sign an agreement: she must never return to police work in any capacity, anywhere in the country. The document was clear and legally binding.",
+            "confidence": 0.97
+          },
+          {
+            "type": "trait",
+            "value": "selected Alice for the case due to her skills",
+            "temporal_tag": "past",
+            "chunk_index": 2,
+            "source_chunk": "Last Tuesday, Alice received an unexpected call from Bob Chen. \"We need to talk,\" he said, his voice tense. They met at a coffee shop in Queens where Bob explained he'd uncovered evidence of a massive conspiracy involving city officials and organized crime. \"It's bigger than anything we ever handled in Chicago,\" Bob told her. \"I need your help.\"\n\nWhat Alice didn't know was that Chief Carol Martinez had personally selected her for this case. Carol, now working as a special advisor to the NYPD, had reviewed the evidence and believed only Alice had the skills to crack it. She assigned Alice as a special consultant to the police task force, offering full access to department resources and databases. Alice felt conflicted when she met Carol at the precinct headquarters. She trusted Bob's instincts completely\u2014he had always been honest with her, even during her darkest days.",
+            "confidence": 0.95
+          },
+          {
+            "type": "prohibition",
+            "value": "protected Alice until the evidence became undeniable",
+            "temporal_tag": "past",
+            "chunk_index": 1,
+            "source_chunk": "The document was clear and legally binding. The scandal also destroyed the relationship between Bob and Carol. Bob had suspected Alice's corruption for months but Carol refused to investigate, protecting Alice until the evidence became undeniable. The betrayal shattered Bob's trust in Carol's leadership. After a heated confrontation in Carol's office, Bob transferred to a different precinct with one condition explicitly stated in his personnel file: he cannot and will not work with Chief Martinez ever again under any circumstances. Present Day - New York City\n\nAlice Rodriguez has rebuilt her life as a private investigator in Manhattan, specializing in corporate fraud cases. She maintains a small office in Brooklyn and has earned a modest reputation for her thorough, ethical investigative work. Her past remains buried, known only to a few. Last Tuesday, Alice received an unexpected call from Bob Chen. \"We need to talk,\" he said, his voice tense.",
+            "confidence": 0.9
+          }
+        ],
+        "interactions": {
+          "outgoing": [
+            {
+              "target": "Detective Bob Chen",
+              "type": "assigns",
+              "description": "Carol pulled strings to get Bob reassigned to the special task force.",
+              "temporal_tag": "past",
+              "chunk_index": 2
+            }
+          ],
+          "incoming": [],
+          "bidirectional": []
+        }
+      },
+      "current_story": {
+        "constraints": [
+          {
+            "type": "trait",
+            "value": "working as a special advisor to the NYPD",
+            "temporal_tag": "habitual",
+            "chunk_index": 2,
+            "source_chunk": "Last Tuesday, Alice received an unexpected call from Bob Chen. \"We need to talk,\" he said, his voice tense. They met at a coffee shop in Queens where Bob explained he'd uncovered evidence of a massive conspiracy involving city officials and organized crime. \"It's bigger than anything we ever handled in Chicago,\" Bob told her. \"I need your help.\"\n\nWhat Alice didn't know was that Chief Carol Martinez had personally selected her for this case. Carol, now working as a special advisor to the NYPD, had reviewed the evidence and believed only Alice had the skills to crack it. She assigned Alice as a special consultant to the police task force, offering full access to department resources and databases. Alice felt conflicted when she met Carol at the precinct headquarters. She trusted Bob's instincts completely\u2014he had always been honest with her, even during her darkest days.",
+            "confidence": 0.9
+          },
+          {
+            "type": "ability",
+            "value": "use political connections to open doors",
+            "temporal_tag": "present",
+            "chunk_index": 3,
+            "source_chunk": "She trusted Bob's instincts completely\u2014he had always been honest with her, even during her darkest days. But Carol's motives seemed unclear, almost suspiciously generous given their history. The investigation moved quickly. Alice reviewed thousands of pages of evidence, cross-referencing financial records with surveillance reports. Bob took the lead on fieldwork, conducting interviews with potential witnesses. Carol used her political connections to open doors that would normally remain closed, sharing insider information about which officials might be compromised. To Alice's surprise, Bob and Carol were working together seamlessly on the investigation, meeting daily to coordinate strategy. Their old tensions seemed forgotten, replaced by professional respect. Carol even mentioned that she'd pulled strings to get Bob reassigned to the special task force. As the case intensified, Alice realized she needed official authority to pursue certain leads.",
+            "confidence": 0.85
+          }
+        ],
+        "interactions": {
+          "outgoing": [
+            {
+              "target": "Alice Rodriguez",
+              "type": "assigns",
+              "description": "Carol selects Alice as a special consultant to the police task force and offers full access to department resources and databases.",
+              "temporal_tag": "present",
+              "chunk_index": 1
+            }
+          ],
+          "incoming": [
+            {
+              "source": "Alice Rodriguez",
+              "type": "trusts",
+              "description": "Alice avoids working with Chief Martinez due to the past betrayal.",
+              "temporal_tag": "present",
+              "chunk_index": 0
+            },
+            {
+              "source": "Alice Rodriguez",
+              "type": "trusts",
+              "description": "Alice feels conflicted but still trusts Bob's instincts.",
+              "temporal_tag": "present",
+              "chunk_index": 1
+            },
+            {
+              "source": "Alice Rodriguez",
+              "type": "trusts",
+              "description": "Their old tensions seemed forgotten, replaced by professional respect.",
+              "temporal_tag": "present",
+              "chunk_index": 2
+            },
+            {
+              "source": "Alice Rodriguez",
+              "type": "speaks",
+              "description": "After consulting with Carol and the Deputy Commissioner, Alice accepted a temporary badge and rejoined the police force as a special investigator.",
+              "temporal_tag": "present",
+              "chunk_index": 2
+            },
+            {
+              "source": "Alice Rodriguez",
+              "type": "promises",
+              "description": "Carol assured Alice it was just for this case.",
+              "temporal_tag": "present",
+              "chunk_index": 2
+            }
+          ],
+          "bidirectional": []
+        }
+      }
+    },
+    {
+      "name": "Detective Bob Chen",
+      "backstory": {
+        "constraints": [],
+        "interactions": {
+          "outgoing": [],
+          "incoming": [
+            {
+              "source": "Chief Carol Martinez",
+              "type": "assigns",
+              "description": "Carol pulled strings to get Bob reassigned to the special task force.",
+              "temporal_tag": "past",
+              "chunk_index": 2
+            }
+          ],
+          "bidirectional": []
+        }
+      },
+      "current_story": {
+        "constraints": [
+          {
+            "type": "prohibition",
+            "value": "cannot and will not work with Chief Martinez ever again under any circumstances",
+            "temporal_tag": "future",
+            "chunk_index": 1,
+            "source_chunk": "The document was clear and legally binding. The scandal also destroyed the relationship between Bob and Carol. Bob had suspected Alice's corruption for months but Carol refused to investigate, protecting Alice until the evidence became undeniable. The betrayal shattered Bob's trust in Carol's leadership. After a heated confrontation in Carol's office, Bob transferred to a different precinct with one condition explicitly stated in his personnel file: he cannot and will not work with Chief Martinez ever again under any circumstances. Present Day - New York City\n\nAlice Rodriguez has rebuilt her life as a private investigator in Manhattan, specializing in corporate fraud cases. She maintains a small office in Brooklyn and has earned a modest reputation for her thorough, ethical investigative work. Her past remains buried, known only to a few. Last Tuesday, Alice received an unexpected call from Bob Chen. \"We need to talk,\" he said, his voice tense.",
+            "confidence": 0.95
+          },
+          {
+            "type": "trait",
+            "value": "honest",
+            "temporal_tag": "habitual",
+            "chunk_index": 3,
+            "source_chunk": "She trusted Bob's instincts completely\u2014he had always been honest with her, even during her darkest days. But Carol's motives seemed unclear, almost suspiciously generous given their history. The investigation moved quickly. Alice reviewed thousands of pages of evidence, cross-referencing financial records with surveillance reports. Bob took the lead on fieldwork, conducting interviews with potential witnesses. Carol used her political connections to open doors that would normally remain closed, sharing insider information about which officials might be compromised. To Alice's surprise, Bob and Carol were working together seamlessly on the investigation, meeting daily to coordinate strategy. Their old tensions seemed forgotten, replaced by professional respect. Carol even mentioned that she'd pulled strings to get Bob reassigned to the special task force. As the case intensified, Alice realized she needed official authority to pursue certain leads.",
+            "confidence": 0.9
+          }
+        ],
+        "interactions": {
+          "outgoing": [
+            {
+              "target": "Alice Rodriguez",
+              "type": "meets",
+              "description": "Bob and Alice meet at a coffee shop in Queens.",
+              "temporal_tag": "present",
+              "chunk_index": 1
+            },
+            {
+              "target": "Alice Rodriguez",
+              "type": "trusts",
+              "description": "Bob felt his trust in Alice completely restored.",
+              "temporal_tag": "present",
+              "chunk_index": 2
+            }
+          ],
+          "incoming": [
+            {
+              "source": "Alice Rodriguez",
+              "type": "trusts",
+              "description": "Alice trusts Bob's instincts completely.",
+              "temporal_tag": "present",
+              "chunk_index": 1
+            },
+            {
+              "source": "Alice Rodriguez",
+              "type": "helps",
+              "description": "Alice proved herself invaluable, uncovering connections others had missed.",
+              "temporal_tag": "present",
+              "chunk_index": 2
+            }
+          ],
+          "bidirectional": [
+            {
+              "other_character": "Alice Rodriguez",
+              "type": "speaks",
+              "description": "Alice Rodriguez and Detective Bob Chen speaks",
+              "temporal_tag": "present",
+              "chunk_index": 0
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
