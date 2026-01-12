@@ -3,6 +3,7 @@
 **Team:** np.rand  
 **Hackathon:** KDSH 2026  
 **Date:** January 12, 2026
+**REPO:** https://github.com/Nikhil-iitg27/KDSH2026
 
 ---
 
